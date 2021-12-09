@@ -21,3 +21,6 @@ class Food:
 
     def get_price(self) -> float:
         return self.__price
+
+    def show_log(self) -> None:
+        print(f"name: {self.__name}, price: {self.__price}")

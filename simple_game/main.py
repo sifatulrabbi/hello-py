@@ -1,25 +1,22 @@
 from simple_game.components.avatar import Avatar
-from simple_game.components.store import Store
-from simple_game.components.gig_store import GigStore
-from simple_game.components.food import Food
+from simple_game.loops.main_loop import main_loop
 
 
 def main() -> None:
-    store = Store(
-        {
-            "pizza": Food("Pizza", 40, 15.6, "human"),
-            "cola": Food("Cola", 3, 1.25, "all"),
-            "burger": Food("Burger", 25, 8.5, "human"),
-            "mars_soil": Food("Mars Soil", 150, 30.25, "alien"),
-        }
-    )
-    foods = store.get_items()
-    gigs = GigStore().get_items()
+    avatar: Avatar
 
-    new_av = Avatar("Peter", "human")
-    new_av.show_status()
+    print("🕹️ Welcome to my simple terminal game 🕹️")
 
-    new_av.consume(foods["pizza"])
-    new_av.income(gigs["build_server"])
+    while True:
+        av_name: str = input("Type your avatar name: ")
+        av_occult: str = input("Choose your occult:\n- human \n- alien\n ?: ")
 
-    new_av.show_status()
+        if av_name and av_occult == "human" or av_occult == "alien":
+            break
+
+    avatar = Avatar(av_name, av_occult)
+
+    print(f"\n✨ Avatar created ✨")
+    avatar.show_status()
+
+    main_loop(avatar)
