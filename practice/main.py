@@ -17,6 +17,3 @@ def main() -> None:
     alien.give_food(foods["Pizza"])
 
     me.give_food(foods["Boiled Mars soil"])
-
-
-main()
