@@ -1,4 +1,4 @@
-from food import Food
+from practice.food import Food
 
 
 class Person:
